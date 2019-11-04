@@ -124,7 +124,10 @@ def routeStoreBetweenDateSwift(controller, sensor_id, from_date, to_date):
 def storeDataSwift(object_name, object_data):
     #TODO
     #return SWITCH_CONTAINER_URL % (container.name, object_name)
-    return "TODO"
+    conn = create_connection_switch(SWITCH_AUTH_URL,openstack_tenant, openstack_user, openstack_pwd, SWITCH_REGION)
+    conn.create_container(CONTAINER_NAME)
+    conn.create_object(container=CONTAINER_NAME, name =object_name, data = object_data )
+    return f"{SWITCH_CONTAINER_URL} ({CONTAINER_NAME}, {object_name}, {object_data})
 
 def storeDataS3(object_name, object_data):
     #TODO
