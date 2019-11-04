@@ -125,7 +125,7 @@ def storeDataSwift(object_name, object_data):
     conn = create_connection_switch(SWITCH_AUTH_URL,openstack_tenant, openstack_user, openstack_pwd, SWITCH_REGION)
     conn.create_container(CONTAINER_NAME)
     conn.create_object(container=CONTAINER_NAME, name =object_name, data = object_data )
-    return return SWITCH_CONTAINER_URL % (container.name, object_name)
+    return SWITCH_CONTAINER_URL % (container.name, object_name)
 
 def storeDataS3(object_name, object_data):
     #TODO
